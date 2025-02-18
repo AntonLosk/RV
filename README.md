@@ -1,6 +1,4 @@
 # ReVanced Magisk Module
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/rvc_magisk)
-[![CI](https://github.com/AntonLosk/RV/actions/workflows/ci.yml/badge.svg?event=schedule)](https://github.com/AntonLosk/RV/actions/workflows/ci.yml)
 
 Extensive ReVanced builder  
 
@@ -35,16 +33,3 @@ Note that the <a href="../../actions/workflows/ci.yml">CI workflow</a> is schedu
  * Grab your modules and APKs from [releases](../../releases)
 
 also see here [`CONFIG.md`](./CONFIG.md)
-
-## Building Locally
-### On Termux
-```console
-bash <(curl -sSf https://raw.githubusercontent.com/j-hc/revanced-magisk-module/main/build-termux.sh)
-```
-
-### On Desktop
-```console
-$ git clone https://github.com/j-hc/revanced-magisk-module
-$ cd revanced-magisk-module
-$ ./build.sh
-```
