@@ -8,17 +8,17 @@ on:
 jobs:
   cleanup:
     name: Cleanup Old Runs
-    permissions:
-      actions: write
-      contents: read
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Delete Old Runs
+      - name: Delete Old Workflow Runs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # Удаляем все запуски кроме последних 5 (экономия ресурсов)
           gh run list --limit 400 --json databaseId -q '.[].databaseId' \
           | tail -n+6 \
           | xargs -r -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE
@@ -27,16 +27,6 @@ jobs:
     name: Daily Build
     needs: cleanup
     permissions:
-      actions: write
-      contents: write
-      checks: write
-      packages: write
-      pull-requests: write
-      attestations: write
-      deployments: write
-      pages: write
-      repository-projects: write
-      statuses: write
-      id-token: write
+      contents: read
     uses: ./.github/workflows/build.yml
     secrets: inherit
