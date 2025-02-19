@@ -3,24 +3,22 @@ name: Scheduled CI Maintenance
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 19 * * *"  # 19:00 UTC (00:00 ЕКБ)
+    - cron: "0 19 * * *"
 
 jobs:
   cleanup:
     name: Cleanup Old Runs
     permissions:
-      actions: write  # Минимальные необходимые права
+      actions: write
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Delete Old Workflow Runs
+      - name: Delete Old Runs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Удаляем все запуски кроме последних 5 (экономия ресурсов)
           gh run list --limit 400 --json databaseId -q '.[].databaseId' \
           | tail -n+6 \
           | xargs -r -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE
@@ -28,7 +26,11 @@ jobs:
   build:
     name: Daily Build
     needs: cleanup
-    permissions:
-      contents: read
+    permissions:  # Явно объявляем необходимые права
+      actions: write
+      contents: write
+      checks: write
+      packages: write
+      pull-requests: write
     uses: ./.github/workflows/build.yml
     secrets: inherit
