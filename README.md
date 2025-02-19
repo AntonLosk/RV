@@ -1,5 +1,6 @@
 # ReVanced Magisk Module
 [![CI](https://github.com/AntonLosk/RV/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/AntonLosk/RV/actions/workflows/ci.yml)
+
 Extensive ReVanced builder  
 
 Get the [latest CI release](https://github.com/AntonLosk/RV/releases).
