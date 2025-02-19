@@ -8,9 +8,8 @@ on:
 jobs:
   cleanup:
     runs-on: ubuntu-latest
-    # Достаточно write для действий с Action Runs:
     permissions:
-      actions: write-all
+      actions: write
     steps:
       - name: Clear older runs
         env:
