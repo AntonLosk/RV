@@ -1,5 +1,4 @@
-# ReVanced Magisk Module
-Extensive ReVanced builder
+Extensive ReVanced builder. Builds both modules and APKs. Updated daily 00:00 UTC+5.
 
 Get the [latest CI release](https://github.com/AntonLosk/RV/releases).
 
