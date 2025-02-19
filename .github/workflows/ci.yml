@@ -1,32 +1,38 @@
-name: Scheduled CI Maintenance
-
+name: CI
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 19 * * *"
+    - cron: "0 19 * * *"  # сборка будет запускаться каждый день в 19:00
 
 jobs:
-  cleanup:
-    name: Cleanup Old Runs
+  check:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Delete Old Workflow Runs
+      - name: Force build?
+        id: should_build
+        shell: bash
+        run: |
+          echo "Форсируем сборку каждый день."
+          echo "SHOULD_BUILD=1" >> $GITHUB_OUTPUT
+
+      - name: Clear older runs
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # Удаляем все запуски кроме последних 5 (экономия ресурсов)
-          gh run list --limit 400 --json databaseId -q '.[].databaseId' \
-          | tail -n+6 \
-          | xargs -r -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE
+          gh run list -L400 --json databaseId -q '.[].databaseId' | tail -n+10 | xargs -IID gh api "repos/$GITHUB_REPOSITORY/actions/runs/ID" -X DELETE || :
+
+    outputs:
+      SHOULD_BUILD: ${{ steps.should_build.outputs.SHOULD_BUILD }}
 
   build:
-    name: Daily Build
-    needs: cleanup
-    permissions:
-      contents: read
+    permissions: write-all
+    needs: check
     uses: ./.github/workflows/build.yml
+    # Убрано условие, чтобы сборка всегда выполнялась
     secrets: inherit
