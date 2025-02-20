@@ -6,33 +6,29 @@ parallel-jobs = 1
 
 # you can use rvmm-config-gen to generate a config
 
-[Music]
+[YTMusic]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
-arch = "arm64-v8a"
+arch = "both"
 build-mode = "module"
-version = "auto"
 included-patches = "'Permanent repeat' 'Hide category bar'"
 excluded-patches = "'GmsCore support' 'Spoof client'"
 
-[Tiktok]
+[TikTok]
 apkmirror-dlurl = "https://apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
-arch = "arm64-v8a"
-version = "auto"
+arch = "both"
+build-mode = "both"
 included-patches = "'SIM spoof'"
 
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-arch = "arm64-v8a"
+arch = "both"
 build-mode = "module"
-version = "auto"
 included-patches = "'Remove player controls background'"
 excluded-patches = "'GmsCore support'"
 
-[GooglePhotos]
-build-mode = "module"
-arch = "arm64-v8a"
-version = "auto"
-uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
+[GPhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
+arch = "both"
+build-mode = "module"
 included-patches = "'Spoof features'"
 exclusive-patches = true
