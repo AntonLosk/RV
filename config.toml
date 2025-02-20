@@ -33,5 +33,6 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
 arch = "both"
 build-mode = "module"
+version = "7.17.0.725321504"
 included-patches = "'Spoof features'"
 exclusive-patches = true
