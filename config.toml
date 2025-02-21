@@ -8,7 +8,6 @@ parallel-jobs = 1
 
 [YTMusic]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
 arch = "both"
 build-mode = "module"
 included-patches = "'Permanent repeat' 'Hide category bar'"
@@ -22,7 +21,6 @@ included-patches = "'SIM spoof'"
 
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 arch = "both"
 build-mode = "module"
 included-patches = "'Remove player controls background'"
@@ -30,7 +28,6 @@ excluded-patches = "'GmsCore support'"
 
 [GPhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
-uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
 arch = "both"
 build-mode = "module"
 version = "7.17.0.725321504"
