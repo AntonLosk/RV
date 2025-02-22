@@ -30,6 +30,5 @@ excluded-patches = "'GmsCore support'"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 arch = "both"
 build-mode = "module"
-version = "7.17.0.725321504"
 included-patches = "'Spoof features'"
 exclusive-patches = true
