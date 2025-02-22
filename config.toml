@@ -21,7 +21,7 @@ included-patches = "'SIM spoof'"
 
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-arch = "both"
+arch = "arm64-v8a"
 build-mode = "module"
 included-patches = "'Remove player controls background'"
 excluded-patches = "'GmsCore support'"
