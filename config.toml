@@ -6,7 +6,7 @@ parallel-jobs = 1
 
 # you can use rvmm-config-gen to generate a config
 
-[YTMusic]
+[Music]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
 arch = "both"
 build-mode = "module"
@@ -20,7 +20,7 @@ build-mode = "module"
 included-patches = "'Remove player controls background'"
 excluded-patches = "'GmsCore support'"
 
-[GPhotos]
+[GooglePhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 arch = "both"
 build-mode = "module"
