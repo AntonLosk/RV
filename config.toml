@@ -8,6 +8,8 @@ parallel-jobs = 1
 
 [Music]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
+uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
+version = "auto"
 arch = "both"
 build-mode = "module"
 included-patches = "'Permanent repeat' 'Hide category bar'"
@@ -15,6 +17,8 @@ excluded-patches = "'GmsCore support' 'Spoof client'"
 
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+version = "auto"
 arch = "both"
 build-mode = "module"
 included-patches = "'Remove player controls background'"
@@ -22,6 +26,8 @@ excluded-patches = "'GmsCore support'"
 
 [GooglePhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
+uptodown-dlurl = "https://google-photos.en.uptodown.com/android"
+version = "auto"
 arch = "both"
 build-mode = "module"
 included-patches = "'Spoof features'"
