@@ -1,6 +1,4 @@
-name: Build Modules on: workflow_call: inputs: from_ci: type: boolean required: false default: true
-
-workflow_dispatch:
+name: Build Modules on: workflow_call: inputs: from_ci: type: boolean required: false default: true workflow_dispatch:
 
 jobs: run: permissions: write-all runs-on: ubuntu-latest steps: - uses: actions/setup-java@v4 with: distribution: "zulu" java-version: "17"
 
@@ -30,7 +28,12 @@ jobs: run: permissions: write-all runs-on: ubuntu-latest steps: - uses: actions/
       echo "NEXT_VER_CODE=$((TAG + 1))" >> $GITHUB_OUTPUT
 
   - name: Build modules/APKs
-    run: if [ -f "config.json" ]; then ./build.sh config.json; else ./build.sh config.toml; fi
+    run: |
+      if [ -f "config.json" ]; then
+        ./build.sh config.json
+      else
+        ./build.sh config.toml
+      fi
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPOSITORY: $GITHUB_REPOSITORY
@@ -40,9 +43,9 @@ jobs: run: permissions: write-all runs-on: ubuntu-latest steps: - uses: actions/
     id: get_output
     run: |
       DELIM="$(openssl rand -hex 8)"
-      echo "BUILD_LOG<<${DELIM}" >> "$GITHUB_OUTPUT"
-      cat build.md >> "$GITHUB_OUTPUT"
-      echo "${DELIM}" >> "$GITHUB_OUTPUT"
+      echo "BUILD_LOG<<${DELIM}" >> $GITHUB_OUTPUT
+      cat build.md >> $GITHUB_OUTPUT
+      echo "${DELIM}" >> $GITHUB_OUTPUT
       cp -f build.md build.tmp
 
   - name: Upload modules to release
@@ -62,7 +65,7 @@ jobs: run: permissions: write-all runs-on: ubuntu-latest steps: - uses: actions/
       git checkout -f update || git switch --discard-changes --orphan update
       cp -f build.tmp build.md
       get_update_json() {
-        echo "{\n            \"version\": \"$1\",\n            \"versionCode\": ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }},\n            \"zipUrl\": \"$2\",\n            \"changelog\": \"https://raw.githubusercontent.com/$GITHUB_REPOSITORY/update/build.md\"\n          }"
+        echo "{\n  \"version\": \"$1\",\n  \"versionCode\": ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }},\n  \"zipUrl\": \"$2\",\n  \"changelog\": \"https://raw.githubusercontent.com/$GITHUB_REPOSITORY/update/build.md\"\n}"
       }
 
       cd build || { echo "build folder not found"; exit 1; }
