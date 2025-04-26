@@ -1,4 +1,5 @@
-name: Build Modules
+name: cache_test
+
 on:
   workflow_call:
     inputs:
@@ -18,6 +19,7 @@ jobs:
         with:
           distribution: "zulu"
           java-version: "17"
+          cache: gradle # кеш для gradle встроенный (дополнение)
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,7 +27,7 @@ jobs:
           fetch-depth: 0
           submodules: true
 
-      # ─── Кэширование зависимостей Maven ───────────────────────────────────────
+      # ─── Кэширование Maven ───────────────────────────────────────────────
       - name: Cache Maven packages
         uses: actions/cache@v4
         with:
@@ -34,16 +36,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
-      # ─── Кэширование зависимостей Gradle ─────────────────────────────────────
-      - name: Cache Gradle packages
+      # ─── Кэширование Android Build Cache ──────────────────────────────────
+      - name: Cache Android Build Cache
         uses: actions/cache@v4
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          path: ~/.android/build-cache
+          key: ${{ runner.os }}-android-buildcache-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
+            ${{ runner.os }}-android-buildcache-
+
+      # ─── Ускорение скачивания зависимостей ────────────────────────────────
+      - name: Setup Gradle Enterprise for faster downloads
+        run: |
+          mkdir -p ~/.gradle/init.d
+          echo "allprojects { gradle.projectsLoaded { rootProject.allprojects { buildscript.repositories { maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' } } repositories { maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' } } } } }" > ~/.gradle/init.d/init.gradle
 
       - name: Update config
         if: ${{ inputs.from_ci }}
@@ -65,7 +71,12 @@ jobs:
           echo "NEXT_VER_CODE=$((TAG + 1))" >> $GITHUB_OUTPUT
 
       - name: Build modules/APKs
-        run: if [ -f "config.json" ]; then ./build.sh config.json; else ./build.sh config.toml; fi
+        run: |
+          if [ -f "config.json" ]; then
+            ./build.sh config.json
+          else
+            ./build.sh config.toml
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: $GITHUB_REPOSITORY
