@@ -13,7 +13,7 @@ build-mode = "module"
 included-patches = "'Permanent repeat' 'Hide category bar'"
 excluded-patches = "'GmsCore support' 'Spoof client'"
 
-[Tiktok]
+[TikTok]
 apkmirror-dlurl = "https://apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
 arch = "both"
 included-patches = "'SIM spoof'"
