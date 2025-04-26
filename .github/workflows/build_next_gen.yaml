@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: "zulu"
-          java-version: "23"
+          java-version: "24"
 
       - name: Checkout
         uses: actions/checkout@v4
