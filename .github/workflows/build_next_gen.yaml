@@ -15,9 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-java@v4
-  with:
-    distribution: "graalvm"
-    java-version: "24"
+        with:
+          distribution: "graalvm"
+          java-version: "21"
 
       - name: Checkout
         uses: actions/checkout@v4
