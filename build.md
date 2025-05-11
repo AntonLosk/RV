@@ -1,4 +1,6 @@
 GooglePhotos: 7.28.0.754713439  
+TikTok (arm64-v8a): 36.5.4  
+TikTok (arm-v7a): 36.5.4  
 YTMusic: 8.05.51  
 YouTube: 20.12.46  
 
