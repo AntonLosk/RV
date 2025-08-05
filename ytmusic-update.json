@@ -1,6 +1,6 @@
 {
-  "version": "v8.30.51 (patches 5.32.0)",
-  "versionCode": 13,
-  "zipUrl": "https://github.com/AntonLosk/RV/releases/download/13/ytmusic-revanced-magisk-v8.30.51-arm64-v8a.zip",
+  "version": "v8.30.51 (patches 5.33.0)",
+  "versionCode": 14,
+  "zipUrl": "https://github.com/AntonLosk/RV/releases/download/14/ytmusic-revanced-magisk-v8.30.51-arm64-v8a.zip",
   "changelog": "https://raw.githubusercontent.com/AntonLosk/RV/update/build.md"
 }
