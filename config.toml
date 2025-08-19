@@ -1,5 +1,5 @@
 enable-magisk-update = true
-parallel-jobs = 2
+parallel-jobs = 1
 
 [YTMusic]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
