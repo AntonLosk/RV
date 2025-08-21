@@ -1,3 +1,4 @@
+GooglePhotos: 7.41.0.795526889  
 TikTok (arm64-v8a): 36.5.4  
 TikTok (arm-v7a): 36.5.4  
 YTMusic: 8.33.53  
