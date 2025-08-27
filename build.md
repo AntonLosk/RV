@@ -1,7 +1,7 @@
 GooglePhotos: 7.41.0.795526889  
 TikTok (arm64-v8a): 36.5.4  
 TikTok (arm-v7a): 36.5.4  
-YTMusic: 8.33.53  
+YTMusic: 8.34.51  
 YouTube: 20.13.41  
 
 Install [Microg](https://github.com/ReVanced/GmsCore/releases) for non-root YouTube and YT Music APKs  
