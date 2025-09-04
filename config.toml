@@ -7,12 +7,13 @@ parallel-jobs = 1
 # you can use rvmm-config-gen to generate a config
 [YTMusic]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
+version = 8.34.51
 arch = "both"
 build-mode = "module"
 excluded-patches = "'GmsCore support' 'Spoof client'"
 
-[TikTok]
-apkmirror-dlurl = "https://apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
+[TikTokASIA]
+apkmirror-dlurl = "https://apkmirror.com/apk/tiktok-pte-ltd/tik-tok/"
 arch = "both"
 included-patches = "'SIM spoof'"
 
