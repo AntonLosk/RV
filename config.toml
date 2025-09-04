@@ -11,7 +11,7 @@ arch = "both"
 build-mode = "module"
 excluded-patches = "'GmsCore support' 'Spoof client'"
 
-[TikTokGLOBAL]
+[TikTok]
 apkmirror-dlurl = "https://apkmirror.com/apk/tiktok-pte-ltd/tik-tok-including-musical-ly/"
 arch = "both"
 included-patches = "'SIM spoof'"
@@ -24,12 +24,7 @@ build-mode = "module"
 [GooglePhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 arch = "both"
+version = "7.43.0.800596475"
 build-mode = "module"
 included-patches = "'Spoof features'"
 exclusive-patches = true
-
-[TikTokASIA]
-apkmirror-dlurl = "https://www.apkmirror.com/apk/tiktok-pte-ltd/tik-tok/"
-arch = "both"
-included-patches = "'SIM spoof'"
-
