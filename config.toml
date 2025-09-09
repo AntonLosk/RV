@@ -7,7 +7,6 @@ parallel-jobs = 1
 # you can use rvmm-config-gen to generate a config
 [YTMusic]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
-version = "8.34.51"
 arch = "both"
 build-mode = "module"
 excluded-patches = "'GmsCore support' 'Spoof client'"
@@ -25,7 +24,6 @@ build-mode = "module"
 [GooglePhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
 arch = "both"
-version = "7.43.0.800596475"
 build-mode = "module"
 included-patches = "'Spoof features'"
 exclusive-patches = true
