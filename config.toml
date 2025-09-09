@@ -8,24 +8,24 @@ parallel-jobs = 1
 [YTMusic]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube-music/"
 version = "8.34.51"
-arch = "both"
+arch = "arm64-v8a"
 build-mode = "module"
 excluded-patches = "'GmsCore support' 'Spoof client'"
 
 [TikTokASIA]
 apkmirror-dlurl = "https://apkmirror.com/apk/tiktok-pte-ltd/tik-tok/"
-arch = "both"
+arch = "arm64-v8a"
 included-patches = "'SIM spoof'"
-version = "7.43.0.800596475"
+
 [YouTube]
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube/"
-arch = "both"
+arch = "arm64-v8a"
 build-mode = "module"
 
 [GooglePhotos]
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/photos/"
-
-arch = "both"
+arch = "arm64-v8a"
+version = "7.43.0.800596475"
 build-mode = "module"
 included-patches = "'Spoof features'"
 exclusive-patches = true
